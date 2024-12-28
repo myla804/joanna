@@ -1,167 +1,166 @@
 /* Responsividade Geral */
 body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    background-color: #dc84ff;
-    overflow: hidden; /* Previne scroll indesejado */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  background-color: #dc84ff;
+  overflow: hidden; /* Previne scroll indesejado */
+}
+
+/* Container Central */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  padding: 20px; /* Espaço extra para telas pequenas */
+}
+
+/* Card */
+.card {
+  background-color: rgb(236, 173, 238);
+  padding: 20px;
+  border-radius: 25px;
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 400px; /* Limite para telas grandes */
+  position: relative;
+  text-align: center;
+}
+
+/* GIF */
+.gif {
+  width: 100%;
+  max-width: 300px; /* Não passa desse tamanho */
+  height: auto;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  border: 5px double #d200f7;
+}
+
+/* Pergunta */
+.question {
+  font-size: 18px; /* Tamanho ajustável */
+  color: #810888;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* Botões */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap; /* Permite quebra de linha */
+}
+
+.button {
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.15);
+  width: 100px; /* Mantém botões consistentes */
+  max-width: 120px;
+  text-align: center;
+}
+
+.button.yes {
+  background-color: #aa1bb2;
+  color: white;
+}
+
+.button.yes:hover {
+  background-color: #f53dff;
+  transform: scale(1.1);
+}
+
+.button.no {
+  background-color: #aa1bb2;
+  color: white;
+  position: relative;
+}
+
+.button.no:hover {
+  background-color: #aa1bb2;
+  transform: scale(1.1);
+}
+
+/* Estilo dos Corações */
+.heart {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-color: #ff0080;
+  border-radius: 50%;
+  transform: rotate(45deg);
+  animation: floatUp 4s ease-in-out forwards;
+}
+
+.heart::before,
+.heart::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-color: #ff0080;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -12.5px;
+  left: 0;
+}
+
+.heart::after {
+  left: -12.5px;
+  top: 0;
+}
+
+/* Animação dos Corações */
+@keyframes floatUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0) rotate(45deg);
   }
-  
-  /* Container Central */
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    height: 100vh;
-    padding: 20px; /* Espaço extra para telas pequenas */
+  100% {
+    opacity: 0;
+    transform: translateY(-300px) rotate(45deg);
   }
-  
-  /* Card */
+}
+
+/* Media Queries para telas menores */
+@media (max-width: 768px) {
   .card {
-    background-color: rgb(236, 173, 238);
-    padding: 20px;
-    border-radius: 25px;
-    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.15);
-    width: 100%;
-    max-width: 400px; /* Limite para telas grandes */
-    position: relative;
-    text-align: center;
+    padding: 15px;
   }
-  
-  /* GIF */
-  .gif {
-    width: 100%;
-    max-width: 300px; /* Não passa desse tamanho */
-    height: auto;
-    border-radius: 20px;
-    margin-bottom: 20px;
-    border: 5px double #d200f7;
-  }
-  
-  /* Pergunta */
+
   .question {
-    font-size: 18px; /* Tamanho ajustável */
-    color: #810888;
-    margin-bottom: 20px;
-    font-weight: 600;
-  }
-  
-  /* Botões */
-  .buttons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap; /* Permite quebra de linha */
-  }
-  
-  .button {
-    padding: 12px 20px;
     font-size: 16px;
-    border: none;
-    border-radius: 15px;
-    cursor: pointer;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.15);
-    width: 100px; /* Mantém botões consistentes */
-    max-width: 120px;
-    text-align: center;
   }
-  
-  .button.yes {
-    background-color: #aa1bb2;
-    color: white;
+
+  .button {
+    padding: 10px;
+    font-size: 14px;
   }
-  
-  .button.yes:hover {
-    background-color: #f53dff;
-    transform: scale(1.1);
+}
+
+@media (max-width: 480px) {
+  .gif {
+    max-width: 200px;
   }
-  
-  .button.no {
-    background-color: #aa1bb2;
-    color: white;
-    position: relative;
+
+  .question {
+    font-size: 14px;
   }
-  
-  .button.no:hover {
-    background-color: #aa1bb2;
-    transform: scale(1.1);
+
+  .button {
+    padding: 8px;
+    font-size: 12px;
   }
-  
-  /* Estilo dos Corações */
-  .heart {
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    background-color: #ff0080;
-    border-radius: 50%;
-    transform: rotate(45deg);
-    animation: floatUp 4s ease-in-out forwards;
-  }
-  
-  .heart::before,
-  .heart::after {
-    content: '';
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    background-color: #ff0080;
-    border-radius: 50%;
-  }
-  
-  .heart::before {
-    top: -12.5px;
-    left: 0;
-  }
-  
-  .heart::after {
-    left: -12.5px;
-    top: 0;
-  }
-  
-  /* Animação dos Corações */
-  @keyframes floatUp {
-    0% {
-      opacity: 1;
-      transform: translateY(0) rotate(45deg);
-    }
-    100% {
-      opacity: 0;
-      transform: translateY(-300px) rotate(45deg);
-    }
-  }
-  
-  /* Media Queries para telas menores */
-  @media (max-width: 768px) {
-    .card {
-      padding: 15px;
-    }
-  
-    .question {
-      font-size: 16px;
-    }
-  
-    .button {
-      padding: 10px;
-      font-size: 14px;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .gif {
-      max-width: 200px;
-    }
-  
-    .question {
-      font-size: 14px;
-    }
-  
-    .button {
-      padding: 8px;
-      font-size: 12px;
-    }
-  }
-  
+}
